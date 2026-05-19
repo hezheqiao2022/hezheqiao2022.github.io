@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1a237e" />
+  <meta name="theme-color" content="#f5f2ec" />
   <title>Hezhe Qiao's Website — Publications</title>
   <style>
     :root{
-      --bg:#f4f6fb;
-      --bg-soft:#eef2ff;
-      --card:rgba(255,255,255,.92);
+      --bg:#f7f5f1;
+      --bg-soft:#f1eee8;
+      --card:rgba(255,255,255,.90);
       --card-solid:#ffffff;
-      --text:#243044;
-      --muted:#667085;
-      --brand-1:#4457c7;
-      --brand-2:#1a237e;
-      --brand-3:#11184d;
-      --link:#2454d6;
-      --accent:#ff5a5f;
-      --accent-soft:#fff0f1;
-      --line:#e5e7eb;
+      --text:#302d29;
+      --muted:#746e66;
+      --brand-1:#8a8379;
+      --brand-2:#625c54;
+      --brand-3:#45403a;
+      --link:#5f584f;
+      --accent:#8e8578;
+      --accent-soft:#efe9df;
+      --line:#e5dfd5;
       --radius:22px;
       --radius-sm:14px;
-      --shadow:0 18px 45px rgba(30,41,59,.10);
-      --shadow-sm:0 8px 22px rgba(30,41,59,.08);
+      --shadow:0 18px 45px rgba(56,50,43,.09);
+      --shadow-sm:0 8px 22px rgba(56,50,43,.07);
       --max:1180px;
     }
 
@@ -36,9 +36,9 @@
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(circle at 10% 0%, rgba(68,87,199,.18), transparent 34%),
-        radial-gradient(circle at 90% 8%, rgba(255,90,95,.14), transparent 30%),
-        linear-gradient(180deg, #fbfcff 0%, var(--bg) 44%, #f8fafc 100%);
+        radial-gradient(circle at 12% 0%, rgba(142,133,120,.12), transparent 34%),
+        radial-gradient(circle at 88% 8%, rgba(98,92,84,.08), transparent 30%),
+        linear-gradient(180deg, #fbfaf8 0%, var(--bg) 44%, #f6f3ed 100%);
       line-height:1.75;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -52,8 +52,8 @@
       inset:0;
       pointer-events:none;
       background-image:
-        linear-gradient(rgba(26,35,126,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(26,35,126,.035) 1px, transparent 1px);
+        linear-gradient(rgba(98,92,84,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98,92,84,.028) 1px, transparent 1px);
       background-size:42px 42px;
       mask-image:linear-gradient(to bottom, rgba(0,0,0,.72), transparent 72%);
       z-index:-1;
@@ -72,10 +72,11 @@
       position:sticky;
       top:0;
       z-index:999;
-      color:#fff;
-      background:linear-gradient(105deg, var(--brand-3), var(--brand-2) 48%, var(--brand-1));
-      box-shadow:0 10px 30px rgba(17,24,77,.18);
-      backdrop-filter:blur(12px);
+      color:var(--text);
+      background:rgba(248,246,241,.94);
+      border-bottom:1px solid rgba(229,223,213,.92);
+      box-shadow:0 10px 28px rgba(56,50,43,.08);
+      backdrop-filter:blur(14px);
     }
     .header-inner{
       max-width:var(--max);
@@ -87,7 +88,7 @@
       align-items:center;
     }
     .logo a{
-      color:#fff;
+      color:var(--brand-3);
       font-size:clamp(20px,2.2vw,28px);
       font-weight:800;
       letter-spacing:.2px;
@@ -105,7 +106,7 @@
     }
     nav li{margin:0}
     nav a{
-      color:#fff;
+      color:var(--brand-3);
       position:relative;
       display:inline-flex;
       align-items:center;
@@ -118,23 +119,23 @@
     }
     nav a:hover,
     nav .current a{
-      background:rgba(255,255,255,.15);
+      background:rgba(98,92,84,.10);
       text-decoration:none;
       opacity:1;
       transform:translateY(-1px);
     }
 
-    /* Main container */
+    /* Open main layout: no large center card */
     .content{
       max-width:var(--max);
-      width:min(94%, var(--max));
-      margin:26px auto 38px;
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.75);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:clamp(18px, 2.4vw, 34px);
-      backdrop-filter:blur(16px);
+      width:min(92%, var(--max));
+      margin:42px auto 46px;
+      background:transparent;
+      border:0;
+      border-radius:0;
+      box-shadow:none;
+      padding:0;
+      backdrop-filter:none;
     }
 
     #main,
@@ -158,8 +159,8 @@
       width:7px;
       height:26px;
       border-radius:999px;
-      background:linear-gradient(180deg, var(--accent), var(--brand-1));
-      box-shadow:0 6px 16px rgba(255,90,95,.22);
+      background:linear-gradient(180deg, var(--brand-2), var(--brand-1));
+      box-shadow:0 6px 16px rgba(98,92,84,.16);
       flex:0 0 auto;
     }
     h3:first-child{
@@ -175,18 +176,18 @@
       font-size:clamp(15px, .9vw + 13px, 17px);
     }
     .divider{
-      border-top:1px solid rgba(226,232,240,.92);
-      margin:22px 0;
+      border-top:1px solid rgba(222,216,207,.88);
+      margin:30px 0;
     }
     .highlight{
       color:#fff;
-      background:linear-gradient(90deg, var(--accent), #ff7a59);
+      background:linear-gradient(90deg, var(--brand-2), var(--brand-1));
       font-weight:800;
       border-radius:999px;
       padding:2px 8px;
       margin-right:6px;
       font-size:.88em;
-      box-shadow:0 6px 14px rgba(255,90,95,.20);
+      box-shadow:0 6px 14px rgba(98,92,84,.18);
     }
 
     /* Publication entries */
@@ -205,17 +206,17 @@
       grid-template-columns:132px 1fr;
       gap:18px;
       align-items:start;
-      background:linear-gradient(180deg, #ffffff, #fbfcff);
-      border:1px solid rgba(226,232,240,.9);
+      background:linear-gradient(180deg, #fff, #fbfaf8);
+      border:1px solid rgba(222,216,207,.90);
       border-radius:var(--radius-sm);
-      box-shadow:0 8px 20px rgba(30,41,59,.05);
+      box-shadow:0 8px 20px rgba(56,50,43,.05);
       padding:16px 18px;
       transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
     tr:hover{
       transform:translateY(-2px);
-      box-shadow:0 14px 26px rgba(30,41,59,.08);
-      border-color:rgba(68,87,199,.24);
+      box-shadow:0 14px 26px rgba(56,50,43,.08);
+      border-color:rgba(98,92,84,.22);
     }
     td{
       vertical-align:top;
@@ -235,7 +236,7 @@
       border-radius:999px;
       color:#fff !important;
       background:linear-gradient(105deg, var(--brand-2), var(--brand-1));
-      box-shadow:0 8px 18px rgba(68,87,199,.20);
+      box-shadow:0 8px 18px rgba(98,92,84,.18);
       font-size:.92em;
       letter-spacing:.1px;
     }
@@ -243,11 +244,11 @@
       color:var(--muted);
     }
     td:nth-child(2){
-      color:#334155;
+      color:#403b35;
     }
     td:nth-child(2) > b,
     td:nth-child(2) b{
-      color:#111827;
+      color:#28241f;
     }
     small{
       display:inline-flex;
@@ -260,10 +261,10 @@
       font-size:.78em;
       font-weight:750;
       line-height:1.45;
-      border:1px solid rgba(68,87,199,.12);
+      border:1px solid rgba(98,92,84,.12);
     }
     a:hover small{
-      background:#e0e7ff;
+      background:#e9e3d9;
       text-decoration:none;
     }
 
@@ -282,14 +283,14 @@
         display:inline-flex;
         align-items:center;
         gap:8px;
-        color:var(--brand-2);
+        color:var(--brand-3);
         background:#fff;
         border:0;
         border-radius:999px;
         padding:9px 14px;
         font-weight:700;
         cursor:pointer;
-        box-shadow:0 8px 18px rgba(0,0,0,.12);
+        box-shadow:0 8px 18px rgba(56,50,43,.10);
       }
       nav{
         grid-column:1 / -1;
@@ -308,11 +309,15 @@
       }
       nav a{
         justify-content:center;
-        background:rgba(255,255,255,.10);
+        background:rgba(98,92,84,.08);
       }
     }
 
     @media (max-width: 720px){
+      .content{
+        width:min(94%, var(--max));
+        margin-top:30px;
+      }
       tr{
         grid-template-columns:1fr;
         gap:9px;
@@ -352,14 +357,14 @@
   <main class="content">
     <div id="main">
       <div class="inner">
-        <h3><span style="color:#6E402E">Refereed Publications</span> (<a href="https://scholar.google.com/citations?user=bMjKCuEAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>)</h3>
+        <h3><span>Refereed Publications</span> (<a href="https://scholar.google.com/citations?user=bMjKCuEAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>)</h3>
         <h4>Please see my Google Scholar for full publication list. (* Co-first author, ** Corresponding author)</h4>
 <!--or <a href="publications.html">here</a> -->
         <h3><b>Tutorial</b></h3>
         <table>
           <tbody>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">AAAI'26</span></td>
+              <td><span>AAAI'26</span></td>
               <td>
                 Toward Foundation Models for Detecting Abnormal Activities on Graphs
                 <a href="https://sites.google.com/view/aaai26-tutorial-gad/home" target="_blank" rel="noopener"><small>[Website]</small></a>
@@ -373,7 +378,7 @@
           </tbody>
           <tbody>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">IJCAI'25</span></td>
+              <td><span>IJCAI'25</span></td>
               <td>
                 Deep Learning for Graph Anomaly Detection
                 <a href="https://sites.google.com/view/ijcai-tutorial-on-ad/home" target="_blank" rel="noopener"><small>[Website]</small></a>
@@ -390,6 +395,7 @@
         <table>
           <tbody>
             <tr>
+              <td>&nbsp;</td>
             <td>
            VerifyMAS: Hypothesis Verification for Failure Attribution in LLM Multi-Agent Systems (2026)
             <a href="https://arxiv.org/pdf/2605.17467" target="_blank" rel="noopener"><small>[PDF]</small></a>
@@ -405,7 +411,7 @@
      <table>
           <tbody>
                       <tr>
-              <td><span style="color:#1a73e8;font-weight:700">KDD'26</span></td>
+              <td><span>KDD'26</span></td>
                  <td>
            TimeRadar: A Domain-Rotatable Foundation Model for Time Series Anomaly Detection (2026)
             <a href="https://arxiv.org/abs/2602.19068" target="_blank" rel="noopener"><small>[PDF]</small></a>
@@ -414,7 +420,7 @@
           </td>
             </tr>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">ICML'26</span></td>
+              <td><span>ICML'26</span></td>
                <td>
                 Normality Calibration in Semi-supervised Graph Anomaly Detection (2025)
                 <a href="https://arxiv.org/abs/2510.02014" target="_blank" rel="noopener"><small>[PDF]</small></a>
@@ -428,7 +434,7 @@
         <table>
           <tbody>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">NeurIPS'25</span></td>
+              <td><span>NeurIPS'25</span></td>
               <td>
                 Semi-supervised Graph Anomaly Detection via Robust Homophily Learning
                 <a href="https://arxiv.org/abs/2506.15448" target="_blank" rel="noopener"><small>[PDF]</small></a>
@@ -438,7 +444,7 @@
               </td>
             </tr>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">TKDE'25</span></td>
+              <td><span>TKDE'25</span></td>
               <td>
                 Deep Graph Anomaly Detection: A Survey and New Perspectives
                 <a href="https://arxiv.org/abs/2409.09957" target="_blank" rel="noopener"><small>[PDF]</small></a>
@@ -448,7 +454,7 @@
               </td>
             </tr>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">KDD'25</span></td>
+              <td><span>KDD'25</span></td>
               <td>
                 AnomalyGFM:Graph Foundation Model for Zero/Few-shot Anomaly Detection
                 <a href="https://arxiv.org/pdf/2502.09254" target="_blank" rel="noopener"><small>[PDF]</small></a>
@@ -460,7 +466,7 @@
               </td>
             </tr>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">IJCAI'25</span></td>
+              <td><span>IJCAI'25</span></td>
               <td>
                 Zero-shot Generalist Graph Anomaly Detection with Unified Neighborhood Prompts
                 <a href="https://arxiv.org/pdf/2410.14886" target="_blank" rel="noopener"><small>[PDF]</small></a>
@@ -476,7 +482,7 @@
         <table>
           <tbody>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">NeurIPS'24</span></td>
+              <td><span>NeurIPS'24</span></td>
               <td>
                 Generative Semi-supervised Graph Anomaly Detection
                 <a href="https://arxiv.org/pdf/2402.11887.pdf" target="_blank" rel="noopener"><small>[PDF]</small></a>
@@ -494,7 +500,7 @@
         <table>
           <tbody>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">NeurIPS'23</span></td>
+              <td><span>NeurIPS'23</span></td>
               <td>
                 Truncated Affinity Maximization: One-class Homophily Modeling for Graph Anomaly Detection
                 <a href="http://arxiv.org/abs/2306.00006" target="_blank" rel="noopener"><small>[PDF]</small></a>

@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1a237e" />
+  <meta name="theme-color" content="#f5f2ec" />
   <title>Hezhe Qiao's Website</title>
   <style>
     :root{
-      --bg:#f4f6fb;
-      --bg-soft:#eef2ff;
-      --card:rgba(255,255,255,.92);
+      --bg:#f7f5f1;
+      --bg-soft:#f1eee8;
+      --card:rgba(255,255,255,.90);
       --card-solid:#ffffff;
-      --text:#243044;
-      --muted:#667085;
-      --brand-1:#4457c7;
-      --brand-2:#1a237e;
-      --brand-3:#11184d;
-      --link:#2454d6;
-      --accent:#ff5a5f;
-      --accent-soft:#fff0f1;
-      --line:#e5e7eb;
+      --text:#302d29;
+      --muted:#746e66;
+      --brand-1:#8a8379;
+      --brand-2:#625c54;
+      --brand-3:#45403a;
+      --link:#5f584f;
+      --accent:#8e8578;
+      --accent-soft:#efe9df;
+      --line:#e5dfd5;
       --radius:22px;
       --radius-sm:14px;
-      --shadow:0 18px 45px rgba(30,41,59,.10);
-      --shadow-sm:0 8px 22px rgba(30,41,59,.08);
+      --shadow:0 18px 45px rgba(56,50,43,.09);
+      --shadow-sm:0 8px 22px rgba(56,50,43,.07);
       --max:1180px;
     }
 
@@ -36,9 +36,9 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(circle at 10% 0%, rgba(68,87,199,.18), transparent 34%),
-        radial-gradient(circle at 90% 8%, rgba(255,90,95,.14), transparent 30%),
-        linear-gradient(180deg, #fbfcff 0%, var(--bg) 44%, #f8fafc 100%);
+        radial-gradient(circle at 12% 0%, rgba(142,133,120,.12), transparent 34%),
+        radial-gradient(circle at 88% 8%, rgba(98,92,84,.08), transparent 30%),
+        linear-gradient(180deg, #fbfaf8 0%, var(--bg) 44%, #f6f3ed 100%);
       line-height:1.75;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -52,8 +52,8 @@
       inset:0;
       pointer-events:none;
       background-image:
-        linear-gradient(rgba(26,35,126,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(26,35,126,.035) 1px, transparent 1px);
+        linear-gradient(rgba(98,92,84,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98,92,84,.028) 1px, transparent 1px);
       background-size:42px 42px;
       mask-image:linear-gradient(to bottom, rgba(0,0,0,.72), transparent 72%);
       z-index:-1;
@@ -68,10 +68,11 @@
       position:sticky;
       top:0;
       z-index:999;
-      color:#fff;
-      background:linear-gradient(105deg, var(--brand-3), var(--brand-2) 48%, var(--brand-1));
-      box-shadow:0 10px 30px rgba(17,24,77,.18);
-      backdrop-filter:blur(12px);
+      color:var(--text);
+      background:rgba(248,246,241,.94);
+      border-bottom:1px solid rgba(229,223,213,.92);
+      box-shadow:0 10px 28px rgba(56,50,43,.08);
+      backdrop-filter:blur(14px);
     }
     .header-inner{
       max-width:var(--max);
@@ -83,7 +84,7 @@
       align-items:center;
     }
     .logo a{
-      color:#fff;
+      color:var(--brand-3);
       font-weight:800;
       font-size:clamp(20px,2.2vw,28px);
       letter-spacing:.2px;
@@ -94,7 +95,7 @@
     nav ul{display:flex;gap:10px;list-style:none;margin:0;padding:0;align-items:center}
     nav li{margin:0}
     nav a{
-      color:#fff;
+      color:var(--brand-3);
       position:relative;
       display:inline-flex;
       align-items:center;
@@ -106,7 +107,7 @@
     }
     nav a:hover,
     nav .current a{
-      background:rgba(255,255,255,.15);
+      background:rgba(98,92,84,.10);
       text-decoration:none;
       opacity:1;
       transform:translateY(-1px);
@@ -115,33 +116,31 @@
     /* Card containers */
     .profile,.content{
       max-width:var(--max);
-      width:min(94%, var(--max));
-      margin:26px auto;
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.75);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:clamp(18px, 2.4vw, 34px);
-      backdrop-filter:blur(16px);
+      width:min(92%, var(--max));
+      margin:0 auto;
+      background:transparent;
+      border:0;
+      border-radius:0;
+      box-shadow:none;
+      padding:0;
+      backdrop-filter:none;
     }
 
     /* Profile layout */
     .profile{
       position:relative;
-      overflow:hidden;
+      overflow:visible;
       display:grid;
       grid-template-columns: 280px 1fr;
-      gap:clamp(20px, 3.4vw, 48px);
+      gap:clamp(24px, 4vw, 54px);
       align-items:center;
+      margin-top:42px;
+      margin-bottom:30px;
+      padding-bottom:34px;
+      border-bottom:1px solid var(--line);
     }
     .profile::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(120deg, rgba(68,87,199,.11), transparent 42%),
-        radial-gradient(circle at 95% 15%, rgba(255,90,95,.12), transparent 28%);
-      pointer-events:none;
+      content:none;
     }
     .profile > *{position:relative}
     .profile .left img{
@@ -157,7 +156,7 @@
     }
     .profile .right p{
       margin:0;
-      color:#334155;
+      color:#403b35;
     }
     .profile .right p:first-child strong{
       display:inline-block;
@@ -182,23 +181,28 @@
       width:7px;
       height:26px;
       border-radius:999px;
-      background:linear-gradient(180deg, var(--accent), var(--brand-1));
-      box-shadow:0 6px 16px rgba(255,90,95,.22);
+      background:linear-gradient(180deg, var(--brand-2), var(--brand-1));
+      box-shadow:0 6px 16px rgba(98,92,84,.16);
     }
     p, li {font-size:1em}
     p{margin:0 0 12px}
     ul{padding-left:1.25rem;margin-top:10px;margin-bottom:10px}
     li{margin-bottom:10px}
-    .divider.line{border-top:1px solid rgba(226,232,240,.92);margin:22px 0}
+    .divider.line{border-top:1px solid rgba(222,216,207,.88);margin:30px 0}
     .highlight{
       color:#fff;
-      background:linear-gradient(90deg, var(--accent), #ff7a59);
+      background:linear-gradient(90deg, var(--brand-2), var(--brand-1));
       font-weight:800;
       border-radius:999px;
       padding:2px 8px;
       margin-right:6px;
       font-size:.88em;
-      box-shadow:0 6px 14px rgba(255,90,95,.20);
+      box-shadow:0 6px 14px rgba(98,92,84,.18);
+    }
+
+    .content{
+      margin-top:0;
+      margin-bottom:42px;
     }
 
     /* Content lists */
@@ -216,7 +220,7 @@
       padding-left:0;
     }
     .content h3:nth-of-type(2) + ul li{
-      background:linear-gradient(180deg, #fff, #fbfcff);
+      background:linear-gradient(180deg, #fff, #fbfaf8);
       border:1px solid rgba(226,232,240,.9);
       border-radius:var(--radius-sm);
       padding:12px 14px;
@@ -226,7 +230,7 @@
     .content h3:nth-of-type(2) + ul li:hover{
       transform:translateY(-2px);
       box-shadow:0 14px 26px rgba(30,41,59,.08);
-      border-color:rgba(68,87,199,.24);
+      border-color:rgba(98,92,84,.22);
     }
     .content h3:nth-of-type(3) + ul{
       position:relative;
@@ -239,7 +243,7 @@
       top:10px;
       bottom:10px;
       width:2px;
-      background:linear-gradient(180deg, rgba(68,87,199,.55), rgba(255,90,95,.22));
+      background:linear-gradient(180deg, rgba(98,92,84,.42), rgba(142,133,120,.18));
       border-radius:999px;
     }
     .content h3:nth-of-type(3) + ul li{
@@ -260,7 +264,7 @@
       border-radius:50%;
       background:var(--brand-1);
       border:2px solid #fff;
-      box-shadow:0 0 0 3px rgba(68,87,199,.12);
+      box-shadow:0 0 0 3px rgba(98,92,84,.10);
     }
 
     /* School logos */
@@ -306,14 +310,14 @@
         display:inline-flex;
         align-items:center;
         gap:8px;
-        color:var(--brand-2);
+        color:var(--brand-3);
         background:#fff;
         border:0;
         border-radius:999px;
         padding:9px 14px;
         font-weight:700;
         cursor:pointer;
-        box-shadow:0 8px 18px rgba(0,0,0,.12);
+        box-shadow:0 8px 18px rgba(56,50,43,.10);
       }
       nav{
         grid-column:1 / -1;
@@ -332,7 +336,7 @@
       }
       nav a{
         justify-content:center;
-        background:rgba(255,255,255,.10);
+        background:rgba(98,92,84,.08);
       }
     }
 
@@ -442,13 +446,13 @@
 
       <h3>Pin</h3>
       <ul>
-        <li>🤖 We recently released a LLM multi-agent system failure attribution project <a href="https://hezheqiao2022.github.io/VerifyMAS/">VerifyMAS</a>. You're welcome to star ⭐ and follow the GitHub repository.
         <li>🧩Our tutorial <a href="https://qwer12191.github.io/Robust-Graph-Learning-on-Web/">Robust Graph Learning in Finance</a> is accepted in WebConf 2026. </li>
         <li>🧩Our tutorial <a href="https://sites.google.com/view/aaai26-tutorial-gad/home">Toward Foundation Models for Detecting Abnormal Activities on Graphs</a> is accepted in AAAI 2026.</li>
         <li>🌐 Our tutorial <a href="https://sites.google.com/view/ijcai-tutorial-on-ad/home">Deep Learning for Graph Anomaly Detection</a> is accepted to IJCAI 2025.</li>
         <li>📄 Check out our survey on <strong>deep graph anomaly detection</strong>: <a href="https://arxiv.org/abs/2409.09957">Deep Graph Anomaly Detection: A Survey and New Perspectives</a> and its <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/tree/main">GitHub repository</a>.</li>
         <li>📚 We released a GitHub repository summarizing papers on <strong>foundation models for anomaly detection</strong>: <a href="https://github.com/mala-lab/Awesome-Anomaly-Detection-with-Foundation-Models">Awesome Anomaly Detection with Foundation Models</a>.</li>
-         </ul>
+        <li>🤖 You're welcome to star ⭐ and follow the GitHub repository on <strong>LLM hallucination evaluation benchmark, detection and mitigation</strong>: <a href="https://github.com/mala-lab/Awesome-LLM-Hallucination-Detection-and-Mitigation">Awesome LLM Hallucination Detection and Mitigation</a>.</li>
+      </ul>
 
       <div class="divider line"></div>
 
@@ -456,7 +460,6 @@
       <ul>
 <!--    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-->
 <!--        <span class="highlight">[New!]-->
-          <li> <span class="highlight">[New!]</span> We recently released a LLM multi-agent system failure attribution project <a href="https://hezheqiao2022.github.io/VerifyMAS/">VerifyMAS</a>.</li>
               <li> <span class="highlight">[New!]</span> 2026/5: One paper on time series anomaly detection is accepted to KDD 2026.</li>
                <li> <span class="highlight">[New!]</span> 2026/5: AnomalyGFM has been accepted for poster presentation at the CCF Graph Conference 2026, see you in Changchun!</li>
               <li> <span class="highlight">[New!]</span> 2026/5: Honored to be recognized as a Silver Reviewer for ICML 2026. Grateful for the opportunity to contribute to the community.</li>
