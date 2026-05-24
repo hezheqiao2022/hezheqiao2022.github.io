@@ -213,13 +213,36 @@
       list-style-position:outside;
     }
 
+    /* Research overview figure */
+    .research-map{
+      margin:18px 0 30px;
+      padding:16px;
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(251,250,248,.88));
+      border:1px solid rgba(226,220,210,.95);
+      border-radius:18px;
+      box-shadow:0 12px 28px rgba(56,50,43,.07);
+    }
+    .research-map-scroll{
+      width:100%;
+      overflow-x:auto;
+      overscroll-behavior-x:contain;
+      border-radius:14px;
+    }
+    .research-map img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:14px;
+      background:#fbfaf8;
+    }
+
     /* Pin and News visual rhythm */
-    .content h3:nth-of-type(2) + ul,
-    .content h3:nth-of-type(3) + ul{
+    .pin-list,
+    .news-list{
       list-style:none;
       padding-left:0;
     }
-    .content h3:nth-of-type(2) + ul li{
+    .pin-list li{
       background:linear-gradient(180deg, #fff, #fbfaf8);
       border:1px solid rgba(226,232,240,.9);
       border-radius:var(--radius-sm);
@@ -227,16 +250,16 @@
       box-shadow:0 8px 20px rgba(30,41,59,.05);
       transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-    .content h3:nth-of-type(2) + ul li:hover{
+    .pin-list li:hover{
       transform:translateY(-2px);
       box-shadow:0 14px 26px rgba(30,41,59,.08);
       border-color:rgba(98,92,84,.22);
     }
-    .content h3:nth-of-type(3) + ul{
+    .news-list{
       position:relative;
       padding-left:18px;
     }
-    .content h3:nth-of-type(3) + ul::before{
+    .news-list::before{
       content:"";
       position:absolute;
       left:4px;
@@ -246,7 +269,7 @@
       background:linear-gradient(180deg, rgba(98,92,84,.42), rgba(142,133,120,.18));
       border-radius:999px;
     }
-    .content h3:nth-of-type(3) + ul li{
+    .news-list li{
       position:relative;
       margin-bottom:12px;
       padding:10px 14px;
@@ -254,7 +277,7 @@
       border:1px solid rgba(226,232,240,.75);
       border-radius:14px;
     }
-    .content h3:nth-of-type(3) + ul li::before{
+    .news-list li::before{
       content:"";
       position:absolute;
       left:-21px;
@@ -352,10 +375,16 @@
       .profile .right{
         order:2;
       }
-      .content h3:nth-of-type(3) + ul{
+      .research-map{
+        padding:10px;
+      }
+      .research-map img{
+        min-width:860px;
+      }
+      .news-list{
         padding-left:14px;
       }
-      .content h3:nth-of-type(3) + ul li::before{
+      .news-list li::before{
         left:-17px;
       }
     }
@@ -444,9 +473,23 @@
 
       <div class="divider line"></div>
 
+      <h3>🧭 Research Overview</h3>
+      <figure class="research-map" aria-label="Research overview: Trustworthy ML framework">
+        <div class="research-map-scroll">
+          <img
+            src="image/trustworthy_ml_framework.png"
+            alt="Research overview framework of Trustworthy ML, including Anomaly Detection, Foundation Model Safety, and MAS Reliability"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </figure>
+
+      <div class="divider line"></div>
+
       <h3>Pin</h3>
-      <ul>
-          <li>🤖 We recently released a LLM multi-agent system failure attribution project <a href="https://hezheqiao2022.github.io/VerifyMAS/">VerifyMAS</a>. You're welcome to star ⭐ and follow the GitHub repository.
+      <ul class="pin-list">
+        <li>🤖 We recently released a LLM multi-agent system failure attribution project <a href="https://hezheqiao2022.github.io/VerifyMAS/">VerifyMAS</a>. You're welcome to star ⭐ and follow the GitHub repository.</li>
         <li>🧩Our tutorial <a href="https://qwer12191.github.io/Robust-Graph-Learning-on-Web/">Robust Graph Learning in Finance</a> is accepted in WebConf 2026. </li>
         <li>🧩Our tutorial <a href="https://sites.google.com/view/aaai26-tutorial-gad/home">Toward Foundation Models for Detecting Abnormal Activities on Graphs</a> is accepted in AAAI 2026.</li>
         <li>🌐 Our tutorial <a href="https://sites.google.com/view/ijcai-tutorial-on-ad/home">Deep Learning for Graph Anomaly Detection</a> is accepted to IJCAI 2025.</li>
@@ -457,7 +500,7 @@
       <div class="divider line"></div>
 
       <h3>News</h3>
-      <ul>
+      <ul class="news-list">
 <!--    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-->
 <!--        <span class="highlight">[New!]-->
            <li> <span class="highlight">[New!]</span>2026/5: We recently released a LLM multi-agent system failure attribution project <a href="https://hezheqiao2022.github.io/VerifyMAS/">VerifyMAS</a>. You're welcome to star ⭐ and follow the GitHub repository.</li>
