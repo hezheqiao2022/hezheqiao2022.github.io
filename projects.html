@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f2ec">
+  <meta name="description" content="Open-source research projects curated by Hezhe Qiao.">
+  <title>GitHub Projects — Hezhe Qiao</title>
+  <style>
+    :root {
+      --bg: #f7f5f1;
+      --card: rgba(255,255,255,.90);
+      --text: #302d29;
+      --muted: #746e66;
+      --brand-1: #8a8379;
+      --brand-2: #625c54;
+      --brand-3: #45403a;
+      --accent: #8e8578;
+      --accent-soft: #efe9df;
+      --line: #e5dfd5;
+      --shadow: 0 18px 45px rgba(56,50,43,.09);
+      --max: 1180px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      font: 17px/1.72 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(142,133,120,.12), transparent 34%),
+        radial-gradient(circle at 88% 8%, rgba(98,92,84,.08), transparent 30%),
+        linear-gradient(180deg, #fbfaf8 0%, var(--bg) 44%, #f6f3ed 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(98,92,84,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98,92,84,.028) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.72), transparent 72%);
+    }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      color: var(--text);
+      background: rgba(248,246,241,.94);
+      border-bottom: 1px solid rgba(229,223,213,.92);
+      box-shadow: 0 10px 28px rgba(56,50,43,.08);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner {
+      width: min(94%, var(--max));
+      margin: auto;
+      padding: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo { font-size: clamp(20px,2.2vw,28px); font-weight: 800; }
+    nav { display: flex; gap: 8px; }
+    nav a {
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 17px;
+      font-weight: 650;
+      opacity: .9;
+      transition: .2s ease;
+    }
+    nav a:hover, nav a.current { background: rgba(98,92,84,.10); opacity: 1; }
+
+    main {
+      width: min(94%, var(--max));
+      margin: 42px auto 40px;
+      padding: 0;
+      background: transparent;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--brand-2);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 3px; border-radius: 9px; background: linear-gradient(90deg,var(--brand-2),var(--brand-1)); }
+    h1 { margin: 0; color: var(--brand-2); font-size: clamp(34px,5vw,58px); line-height: 1.08; letter-spacing: -.035em; }
+    .intro { max-width: 760px; margin: 18px 0 34px; color: var(--muted); font-size: clamp(16px,1.5vw,19px); }
+
+    .project-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 22px; }
+    .project-card {
+      position: relative;
+      display: flex;
+      min-height: 360px;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(160deg,#fff 25%,#fbfaf8 100%);
+      box-shadow: 0 9px 28px rgba(56,50,43,.07);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .project-card::after {
+      content: "";
+      position: absolute;
+      top: -65px;
+      right: -65px;
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(142,133,120,.16), transparent 68%);
+    }
+    .project-card:hover { transform: translateY(-5px); border-color: rgba(98,92,84,.25); box-shadow: 0 20px 42px rgba(56,50,43,.12); }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .repo-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 14px;
+      color: #fff;
+      background: linear-gradient(135deg,var(--brand-3),var(--brand-1));
+      box-shadow: 0 9px 18px rgba(56,50,43,.18);
+    }
+    .repo-icon svg { width: 24px; height: 24px; fill: currentColor; }
+    .star-badge { position: relative; z-index: 1; display: inline-flex; }
+    .star-badge img { display: block; height: 24px; }
+    h2 { margin: 24px 0 12px; color: #403b35; font-size: clamp(20px,2vw,25px); line-height: 1.3; overflow-wrap: anywhere; }
+    .description { margin: 0 0 22px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: auto 0 24px; }
+    .tag { padding: 5px 10px; border: 1px solid rgba(98,92,84,.12); border-radius: 999px; color: var(--brand-2); background: var(--accent-soft); font-size: 13px; font-weight: 700; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 11px;
+      font-size: 14px;
+      font-weight: 750;
+      transition: .2s ease;
+    }
+    .button-primary { color: #fff; background: linear-gradient(105deg,var(--brand-3),var(--brand-1)); box-shadow: 0 7px 16px rgba(56,50,43,.16); }
+    .button-secondary { color: var(--brand-2); border: 1px solid var(--line); background: #fff; }
+    .button:hover { transform: translateY(-1px); filter: brightness(1.04); }
+    footer { width: min(94%,var(--max)); margin: 0 auto 32px; color: var(--muted); text-align: center; font-size: 14px; }
+
+    @media (max-width: 1050px) { .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 760px) {
+      .header-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
+      nav { width: 100%; overflow-x: auto; }
+      nav a { white-space: nowrap; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 330px; padding: 23px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="index.html">Hezhe Qiao (乔贺辙)</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="publications.html">Publications (Full)</a>
+        <a href="publication_primary.html">Publications (Primary)</a>
+        <a class="current" href="projects.html" aria-current="page">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="eyebrow">Open-source research</div>
+    <h1>GitHub Projects</h1>
+    <p class="intro">Curated research resources that make anomaly-detection literature, datasets, methods, and tutorials easier to discover and use.</p>
+
+    <section class="project-grid" aria-label="Featured GitHub projects">
+      <article class="project-card">
+        <div class="card-top">
+          <div class="repo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 3h7v7H3V3Zm2 2v3h3V5H5Zm9-2h7v7h-7V3Zm2 2v3h3V5h-3ZM3 14h7v7H3v-7Zm2 2v3h3v-3H5Zm11-2h2v2h-2v-2Zm-2 2h2v2h-2v-2Zm4 0h3v2h-3v-2Zm-4 4h4v2h-4v-2Zm6-2h2v4h-2v-4Z"/></svg>
+          </div>
+          <a class="star-badge" href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/stargazers" target="_blank" rel="noopener" aria-label="View stargazers for Awesome Deep Graph Anomaly Detection">
+            <img src="https://img.shields.io/github/stars/mala-lab/Awesome-Deep-Graph-Anomaly-Detection?style=for-the-badge&logo=github&label=Stars&color=625c54" alt="GitHub stars">
+          </a>
+        </div>
+        <h2>Awesome Deep Graph Anomaly Detection</h2>
+        <p class="description">A comprehensive research resource for deep graph anomaly detection, featuring representative papers, datasets, methods, tutorials, and related materials.</p>
+        <div class="tags"><span class="tag">Graph Anomaly Detection</span><span class="tag">Papers</span><span class="tag">Datasets</span><span class="tag">Tutorials</span></div>
+        <div class="actions">
+          <a class="button button-primary" href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection" target="_blank" rel="noopener">View on GitHub →</a>
+          <a class="button button-secondary" href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/stargazers" target="_blank" rel="noopener">★ Star project</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-top">
+          <div class="repo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 3.5 6.5v11L12 22l8.5-4.5v-11L12 2Zm0 2.3 5.9 3.1L12 10.5 6.1 7.4 12 4.3ZM5.5 9l5.5 2.9v7.2l-5.5-2.9V9Zm7.5 10.1v-7.2L18.5 9v7.2L13 19.1Z"/></svg>
+          </div>
+          <a class="star-badge" href="https://github.com/mala-lab/Awesome-Anomaly-Detection-Foundation-Models/stargazers" target="_blank" rel="noopener" aria-label="View stargazers for Awesome Anomaly Detection Foundation Models">
+            <img src="https://img.shields.io/github/stars/mala-lab/Awesome-Anomaly-Detection-Foundation-Models?style=for-the-badge&logo=github&label=Stars&color=625c54" alt="GitHub stars">
+          </a>
+        </div>
+        <h2>Awesome Anomaly Detection Foundation Models</h2>
+        <p class="description">A curated collection of recent foundation-model research for anomaly detection across tabular data, time series, images, videos, graphs, text, and logs.</p>
+        <div class="tags"><span class="tag">Foundation Models</span><span class="tag">Multimodal</span><span class="tag">Anomaly Detection</span><span class="tag">Resources</span></div>
+        <div class="actions">
+          <a class="button button-primary" href="https://github.com/mala-lab/Awesome-Anomaly-Detection-Foundation-Models" target="_blank" rel="noopener">View on GitHub →</a>
+          <a class="button button-secondary" href="https://github.com/mala-lab/Awesome-Anomaly-Detection-Foundation-Models/stargazers" target="_blank" rel="noopener">★ Star project</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="card-top">
+          <div class="repo-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v2H5a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-7a3 3 0 0 0-3-3h-2V7a5 5 0 0 0-5-5Zm-3 7V7a3 3 0 0 1 6 0v2H9Zm3 4a2 2 0 0 1 1 3.73V19h-2v-2.27A2 2 0 0 1 12 13Z"/></svg>
+          </div>
+          <a class="star-badge" href="https://github.com/mala-lab/VerifyMAS/stargazers" target="_blank" rel="noopener" aria-label="View stargazers for VerifyMAS">
+            <img src="https://img.shields.io/github/stars/mala-lab/VerifyMAS?style=for-the-badge&logo=github&label=Stars&color=625c54" alt="GitHub stars">
+          </a>
+        </div>
+        <h2>VerifyMAS</h2>
+        <p class="description">Hypothesis verification for failure attribution in LLM-based multi-agent systems, supporting error identification and responsible-agent localization from complete execution trajectories.</p>
+        <div class="tags"><span class="tag">Multi-Agent Systems</span><span class="tag">Failure Attribution</span><span class="tag">LLM Reliability</span><span class="tag">Diagnosis</span></div>
+        <div class="actions">
+          <a class="button button-primary" href="https://github.com/mala-lab/VerifyMAS/tree/main" target="_blank" rel="noopener">View on GitHub →</a>
+          <a class="button button-secondary" href="https://github.com/mala-lab/VerifyMAS/stargazers" target="_blank" rel="noopener">★ Star project</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>Open-source resources curated by Hezhe Qiao.</footer>
+</body>
+</html>
