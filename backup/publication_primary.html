@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f2ec" />
+  <title>Hezhe Qiao's Website — Publications</title>
+  <style>
+    :root{
+      --bg:#f7f5f1;
+      --bg-soft:#f1eee8;
+      --card:rgba(255,255,255,.90);
+      --card-solid:#ffffff;
+      --text:#302d29;
+      --muted:#746e66;
+      --brand-1:#8a8379;
+      --brand-2:#625c54;
+      --brand-3:#45403a;
+      --link:#5f584f;
+      --accent:#8e8578;
+      --accent-soft:#efe9df;
+      --line:#e5dfd5;
+      --radius:22px;
+      --radius-sm:14px;
+      --shadow:0 18px 45px rgba(56,50,43,.09);
+      --shadow-sm:0 8px 22px rgba(56,50,43,.07);
+      --max:1180px;
+    }
+
+    /* Reset */
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{min-height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(142,133,120,.12), transparent 34%),
+        radial-gradient(circle at 88% 8%, rgba(98,92,84,.08), transparent 30%),
+        linear-gradient(180deg, #fbfaf8 0%, var(--bg) 44%, #f6f3ed 100%);
+      line-height:1.75;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      text-rendering:optimizeLegibility;
+      font-size:clamp(16px, 1.05vw + 14px, 18px);
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(98,92,84,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(98,92,84,.028) 1px, transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.72), transparent 72%);
+      z-index:-1;
+    }
+
+    a{
+      color:var(--link);
+      text-decoration:none;
+      font-weight:600;
+      text-underline-offset:3px;
+    }
+    a:hover{text-decoration:underline}
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      color:var(--text);
+      background:rgba(248,246,241,.94);
+      border-bottom:1px solid rgba(229,223,213,.92);
+      box-shadow:0 10px 28px rgba(56,50,43,.08);
+      backdrop-filter:blur(14px);
+    }
+    .header-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 20px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:16px;
+      align-items:center;
+    }
+    .logo a{
+      color:var(--brand-3);
+      font-size:clamp(20px,2.2vw,28px);
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .logo a:hover{text-decoration:none}
+
+    .menu-toggle{display:none}
+    nav ul{
+      display:flex;
+      gap:10px;
+      list-style:none;
+      margin:0;
+      padding:0;
+      align-items:center;
+    }
+    nav li{margin:0}
+    nav a{
+      color:var(--brand-3);
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      padding:8px 13px;
+      border-radius:999px;
+      font-size:18px;
+      font-weight:650;
+      opacity:.9;
+      transition:background .2s ease, opacity .2s ease, transform .2s ease;
+    }
+    nav a:hover,
+    nav .current a{
+      background:rgba(98,92,84,.10);
+      text-decoration:none;
+      opacity:1;
+      transform:translateY(-1px);
+    }
+
+    /* Open main layout: no large center card */
+    .content{
+      max-width:var(--max);
+      width:min(92%, var(--max));
+      margin:42px auto 46px;
+      background:transparent;
+      border:0;
+      border-radius:0;
+      box-shadow:none;
+      padding:0;
+      backdrop-filter:none;
+    }
+
+    #main,
+    .inner{
+      width:100%;
+    }
+
+    h3{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:clamp(20px,1.6vw,26px);
+      color:var(--brand-2);
+      border-bottom:1px solid var(--line);
+      padding-bottom:10px;
+      margin:30px 0 16px;
+      letter-spacing:.1px;
+    }
+    h3::before{
+      content:"";
+      width:7px;
+      height:26px;
+      border-radius:999px;
+      background:linear-gradient(180deg, var(--brand-2), var(--brand-1));
+      box-shadow:0 6px 16px rgba(98,92,84,.16);
+      flex:0 0 auto;
+    }
+    h3:first-child{
+      margin-top:0;
+    }
+    h3:first-child span{
+      color:var(--brand-2) !important;
+    }
+    h4{
+      margin:4px 0 24px;
+      color:var(--muted);
+      font-weight:500;
+      font-size:clamp(15px, .9vw + 13px, 17px);
+    }
+    .divider{
+      border-top:1px solid rgba(222,216,207,.88);
+      margin:30px 0;
+    }
+    .highlight{
+      color:#fff;
+      background:linear-gradient(90deg, var(--brand-2), var(--brand-1));
+      font-weight:800;
+      border-radius:999px;
+      padding:2px 8px;
+      margin-right:6px;
+      font-size:.88em;
+      box-shadow:0 6px 14px rgba(98,92,84,.18);
+    }
+
+    /* Publication entries */
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0 12px;
+      margin:0 0 10px;
+    }
+    tbody,
+    tr{
+      width:100%;
+    }
+    tr{
+      display:grid;
+      grid-template-columns:132px 1fr;
+      gap:18px;
+      align-items:start;
+      background:linear-gradient(180deg, #fff, #fbfaf8);
+      border:1px solid rgba(222,216,207,.90);
+      border-radius:var(--radius-sm);
+      box-shadow:0 8px 20px rgba(56,50,43,.05);
+      padding:16px 18px;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    tr:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 26px rgba(56,50,43,.08);
+      border-color:rgba(98,92,84,.22);
+    }
+    td{
+      vertical-align:top;
+      padding:0;
+    }
+    td:first-child{
+      width:auto;
+      white-space:nowrap;
+      font-weight:800;
+    }
+    td:first-child span{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:96px;
+      padding:6px 10px;
+      border-radius:999px;
+      color:#fff !important;
+      background:linear-gradient(105deg, var(--brand-2), var(--brand-1));
+      box-shadow:0 8px 18px rgba(98,92,84,.18);
+      font-size:.92em;
+      letter-spacing:.1px;
+    }
+    td:first-child:has(+ td) {
+      color:var(--muted);
+    }
+    td:nth-child(2){
+      color:#403b35;
+    }
+    td:nth-child(2) > b,
+    td:nth-child(2) b{
+      color:#28241f;
+    }
+    small{
+      display:inline-flex;
+      margin-left:4px;
+      margin-top:2px;
+      padding:2px 7px;
+      border-radius:999px;
+      background:var(--bg-soft);
+      color:var(--brand-2);
+      font-size:.78em;
+      font-weight:750;
+      line-height:1.45;
+      border:1px solid rgba(98,92,84,.12);
+    }
+    a:hover small{
+      background:#e9e3d9;
+      text-decoration:none;
+    }
+
+    /* Empty venue cell for preprints */
+    td:first-child:empty,
+    td:first-child:has(>&nbsp;){
+      display:block;
+    }
+
+    /* Mobile nav */
+    @media (max-width: 960px){
+      .header-inner{
+        grid-template-columns:1fr auto;
+      }
+      .menu-toggle{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        color:var(--brand-3);
+        background:#fff;
+        border:0;
+        border-radius:999px;
+        padding:9px 14px;
+        font-weight:700;
+        cursor:pointer;
+        box-shadow:0 8px 18px rgba(56,50,43,.10);
+      }
+      nav{
+        grid-column:1 / -1;
+      }
+      nav ul{
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        max-height:0;
+        overflow:hidden;
+        transition:max-height .3s ease;
+      }
+      nav ul.show{
+        max-height:320px;
+        margin-top:8px;
+      }
+      nav a{
+        justify-content:center;
+        background:rgba(98,92,84,.08);
+      }
+    }
+
+    @media (max-width: 720px){
+      .content{
+        width:min(94%, var(--max));
+        margin-top:30px;
+      }
+      tr{
+        grid-template-columns:1fr;
+        gap:9px;
+        padding:14px;
+      }
+      td:first-child span{
+        min-width:auto;
+      }
+      h3{
+        align-items:flex-start;
+      }
+      small{
+        margin-top:5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important;transition:none !important}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><a href="index.html">Hezhe Qiao (乔贺辙)</a></div>
+      <button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">☰ Menu</button>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="current"><a href="publication_primary.html">Publications</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content">
+    <div id="main">
+      <div class="inner">
+        <h3><span>Academic Activity</span></h3>
+        <h3><b>Tutorial</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><span>AAAI'26</span></td>
+              <td>
+                Toward Foundation Models for Detecting Abnormal Activities on Graphs
+                <a href="https://sites.google.com/view/aaai26-tutorial-gad/home" target="_blank" rel="noopener"><small>[Website]</small></a>
+                <a href="https://github.com/mala-lab/Awesome-Anomaly-Detection-Foundation-Models" target="_blank" rel="noopener"><small>[Project]</small></a>
+                <a href="https://drive.google.com/file/d/1bxUhRH77Ysi0Qc3Jx4nuRqm8uSbu8T1Y/view" target="_blank" rel="noopener"><small>[Slides]</small></a>
+                <a href="https://us06web.zoom.us/rec/play/zq_IUaYnW0n0n8kfkpaRnXex_uUFBU-9MC1VOeXSoEsNykiDIYmQV7Hyj3TCgzJ5k9oEghORgyArwR2a.LH93_nWEAAlacjrl?eagerLoadZvaPages=&accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&startTime=1768973758000&componentName=rec-play&originRequestUrl=https%3A%2F%2Fus06web.zoom.us%2Frec%2Fshare%2Fhlx7ioCbZnSylbi9CbiiWMt-8ve6Hh5dinzm2pce73R_oAFoIc-TTP0cf88wCFdO.7uCxDdC45Cx4Ocyk%3FstartTime%3D1768973758000" target="_blank" rel="noopener"><small>[Video]</small></a>
+                <a href="https://mp.weixin.qq.com/s/TlSCLkrx1YIqC9gdRQvv6A" target="_blank" rel="noopener"><small>[News]</small></a><br />
+                <b>Hezhe Qiao</b>, Hanghang Tong, Bo An, Irwin King, Charu Aggarwal, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td><span>IJCAI'25</span></td>
+              <td>
+                Deep Learning for Graph Anomaly Detection
+                <a href="https://sites.google.com/view/ijcai-tutorial-on-ad/home" target="_blank" rel="noopener"><small>[Website]</small></a>
+                <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection?tab=readme-ov-file" target="_blank" rel="noopener"><small>[Project]</small></a>
+                <a href="https://drive.google.com/file/d/17qbeiLvx9r8bf-cmrO4vhKBYSHaRcZWO/view?usp=drive_link" target="_blank" rel="noopener"><small>[Slides]</small></a>
+                <a href="https://mp.weixin.qq.com/s/LFtL_ZfU49VECLVa6zAtrA" target="_blank" rel="noopener"><small>[News]</small></a><br />
+                <b>Hezhe Qiao</b>, Hanghang Tong, Bo An, Irwin King, Charu Aggarwal, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--              <td><span>WebConf'26</span></td>--
+<!--              <td>-->
+<!--                Robust Graph Learning on the Web: Challenges, Methods, and Applications-->
+<!--            <a href="https://qwer12191.github.io/Robust-Graph-Learning-on-Web/" target="_blank" rel="noopener"><small>[Website]</small></a>-->
+<!--             <a href="https://github.com/ICT-FinD-Lab/awesome-robust-graph-learning" target="_blank" rel="noopener"><small>[Project]</small></a>-->
+<!--           <a href="https://docs.google.com/presentation/d/1xj_9ufFmCX_zjfmYKZOwuARxUjSrL_AK/edit?slide=id.p1#slide=id.p1" target="_blank" rel="noopener"><small>[Slides]</small></a>-->
+<!--            <a href="https://mp.weixin.qq.com/s/yUWIZKl6tLfOu0y0O4t04g" target="_blank" rel="noopener"><small>[News]</small></a><br />-->
+<!--            Xiang Ao, Yang Liu,  Guansong Pang, Yuanhao Ding, <b>Hezhe Qiao</b>, Dawei Cheng, Qing He-->
+<!--          </td>-->
+<!--            </tr>-->
+<!--          </tbody>-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--              <td><span>ICAIF'25</span></td>-->
+<!--              <td>-->
+<!--                Robust Graph Learning in Finance-->
+<!--            <a href="https://qwer12191.github.io/robust-graph-learning/" target="_blank" rel="noopener"><small>[Website]</small></a>-->
+<!--             <a href="" target="_blank" rel="noopener"><small>[Slides]</small></a><br />-->
+<!--                Xiang Ao, Yang Liu,  Guansong Pang, Yuanhao Ding, <b>Hezhe Qiao</b>, Dawei Cheng, Qing He-->
+<!--          </td>-->
+<!--            </tr>-->
+<!--          </tbody>-->
+        </table>
+
+          <h3><span>First-author Publications</span> (<a href="https://scholar.google.com/citations?user=bMjKCuEAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>)</h3>
+        <h4>Please see my Google Scholar for full publication list. (* Co-first author, ** Corresponding author)</h4>
+        <h3><b>Preprints</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>&nbsp;</td>
+            <td>
+           VerifyMAS: Hypothesis Verification for Failure Attribution in LLM Multi-Agent Systems (2026)
+            <a href="https://arxiv.org/pdf/2605.17467" target="_blank" rel="noopener"><small>[PDF]</small></a>
+            <a href="https://github.com/mala-lab/VerifyMAS" target="_blank" rel="noopener"><small>[Code]</small></a>
+           <a href="https://hezheqiao2022.github.io/VerifyMAS/" target="_blank" rel="noopener"><small>[Project]</small></a><br />
+          <b>Hezhe Qiao</b>,  Hanghang Tong, Ee-Peng Lim, Bing Liu, Guansong Pang
+          </td>
+            </tr>
+          </tbody>
+        </table>
+
+         <h3><b>2026</b></h3>
+     <table>
+          <tbody>
+                      <tr>
+              <td><span>KDD'26</span></td>
+                 <td>
+           TimeRadar: A Domain-Rotatable Foundation Model for Time Series Anomaly Detection
+            <a href="https://arxiv.org/abs/2602.19068" target="_blank" rel="noopener"><small>[PDF]</small></a>
+            <a href="https://github.com/mala-lab/TimeRadar" target="_blank" rel="noopener"><small>[Code]</small></a><br />
+            Hui He*, <b>Hezhe Qiao*</b>, Yutong Chen, Kun Yi, Guansong Pang
+          </td>
+            </tr>
+            <tr>
+              <td><span>ICML'26</span></td>
+               <td>
+                Normality Calibration in Semi-supervised Graph Anomaly Detection
+                <a href="https://arxiv.org/abs/2510.02014" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/GraphNC" target="_blank" rel="noopener"><small>[Code]</small></a><br />
+                Zeng Guolei*, <b>Hezhe Qiao*</b>, Guoguo Ai, Jinsong Guo, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3><b>2025</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><span>NeurIPS'25</span></td>
+              <td>
+                Semi-supervised Graph Anomaly Detection via Robust Homophily Learning
+                <a href="https://arxiv.org/abs/2506.15448" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/RHO" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="" target="_blank" rel="noopener"><small>[Slides]</small></a><br />
+                Guoguo Ai*, <b>Hezhe Qiao*</b>, Hui Yan, Guansong Pang
+              </td>
+            </tr>
+            <tr>
+              <td><span>TKDE'25</span></td>
+              <td>
+                Deep Graph Anomaly Detection: A Survey and New Perspectives
+                <a href="https://arxiv.org/abs/2409.09957" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/tree/main" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="https://mp.weixin.qq.com/s/Q9HBL_cdF3B_z9OHr-OZQA" target="_blank" rel="noopener"><small>[News]</small></a><br />
+                <b>Hezhe Qiao</b>, Hanghang Tong, Bo An, Irwin King, Charu Aggarwal, Guansong Pang
+              </td>
+            </tr>
+            <tr>
+              <td><span>KDD'25</span></td>
+              <td>
+                AnomalyGFM:Graph Foundation Model for Zero/Few-shot Anomaly Detection
+                <a href="https://arxiv.org/pdf/2502.09254" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/AnomalyGFM" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="https://hezheqiao2022.github.io/papers/KDD2025_slides.pdf" target="_blank" rel="noopener"><small>[Slides]</small></a>
+                <a href="https://github.com/mala-lab/AnomalyGFM/blob/main/poster-KDD2025.pdf" target="_blank" rel="noopener"><small>[Poster]</small></a>
+                <a href="https://mp.weixin.qq.com/s/Ewiwl_wWkCxq85cnCqfxhg" target="_blank" rel="noopener"><small>[News]</small></a><br />
+                <b>Hezhe Qiao*</b>, Chaoxi Niu*, Ling Chen, Guansong Pang
+              </td>
+            </tr>
+            <tr>
+              <td><span>IJCAI'25</span></td>
+              <td>
+                Zero-shot Generalist Graph Anomaly Detection with Unified Neighborhood Prompts
+                <a href="https://arxiv.org/pdf/2410.14886" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/UNPrompt" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="https://drive.google.com/file/d/1Pcp1sRLtnjcM6wR-Nh5nb2EcJAtuuy39/view?usp=sharing" target="_blank" rel="noopener"><small>[Slides]</small></a><br />
+                Chaoxi Niu*, <b>Hezhe Qiao*</b>, Changlu Chen, Ling Chen, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3><b>2024</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><span>NeurIPS'24</span></td>
+              <td>
+                Generative Semi-supervised Graph Anomaly Detection
+                <a href="https://arxiv.org/pdf/2402.11887.pdf" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/GGAD" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="https://hezheqiao2022.github.io/papers/NeurIPS2024GGAD_slides.pdf" target="_blank" rel="noopener"><small>[Slides]</small></a>
+                <a href="https://github.com/mala-lab/GGAD/blob/main/poster-NeurIPS2024.pdf" target="_blank" rel="noopener"><small>[Poster]</small></a>
+                <a href="https://mp.weixin.qq.com/s/KLFP1xagr18e2Qn5CkrX2A" target="_blank" rel="noopener"><small>[News]</small></a><br />
+                <b>Hezhe Qiao</b>, Qingsong Wen, Xiaoli Li, Ee-Peng Lim, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3><b>2023</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><span>NeurIPS'23</span></td>
+              <td>
+                Truncated Affinity Maximization: One-class Homophily Modeling for Graph Anomaly Detection
+                <a href="http://arxiv.org/abs/2306.00006" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/TAM-master" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="https://hezheqiao2022.github.io/papers/NeurIPS2023TAM_slides.pdf" target="_blank" rel="noopener"><small>[Slides]</small></a>
+                <a href="https://drive.google.com/file/d/1r5C1ijuFyBfMEHU1_eJQyHReOLOXiYHp/view?usp=sharing" target="_blank" rel="noopener"><small>[Poster]</small></a>
+                <a href="https://mp.weixin.qq.com/s/OpVrzxqnXLz-LxsYsXmmCQ" target="_blank" rel="noopener"><small>[News]</small></a><br />
+                <b>Hezhe Qiao</b>, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleMenu(){
+      const menu=document.getElementById('nav-menu');
+      const btn=document.querySelector('.menu-toggle');
+      menu.classList.toggle('show');
+      const expanded=btn.getAttribute('aria-expanded')==='true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    }
+  </script>
+</body>
+</html>
